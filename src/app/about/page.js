@@ -1,3 +1,5 @@
-return (
-  <div>This is me!</div>
-);
+const About = () => {
+  return (
+    <div>This is me!</div>
+  );
+}
