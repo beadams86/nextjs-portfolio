@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const ProjectFeed = ({ projects = [] }) => {
-  console.log('projects', projects);
   return (
     <section className="project-feed">
     {projects && projects.length
