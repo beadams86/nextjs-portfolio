@@ -1,95 +1,57 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Splash from '../components/Splash';
+import ProjectFeed from '../components/ProjectFeed';
 
-export default function Home() {
+import Me from '../assets/Ben-Adams_NoBG.png';
+import '../styles/_index.scss';
+
+import GeospatialImage from '../assets/projects/geospatial/Geospatial-Search.jpg';
+import OceanographyImage from '../assets/projects/oceanography/ocean_preview.jpeg';
+import EarthScienceImage from '../assets/projects/earth-science/earth-science.jpg';
+import { siteMetadata } from '../metadata';
+
+const Home = () => {
+  const projects = [
+    {
+      title: 'Geospatial Application with serious capabilities!',
+      description: "A React application, built on Node & AWS, packed with a bunch of unique & powerful features. I've operated as the lead FE Engineer & UI/UX designer since 2021, shipping numerous vital features.",
+      slug: 'geospatial',
+      tags: ['Frontend Engineering', 'UI/UX Design', 'CI/CD', 'React', 'JavaScript'],
+      image: GeospatialImage
+    },
+    {
+      title: 'Full UI/UX Overhaul for an Ocean Sciences Org',
+      description: "Designing & building out a new design & website templates in code, for a well respected Oceanographic institute.",
+      slug: 'oceanography',
+      tags: ['Frontend Engineering', 'UI/UX Design'],
+      image: OceanographyImage
+    },
+    {
+      title: 'NASA + USGS Website & Data Portal Overhaul',
+      description: "Designing & developing a completely new website, including a Django backed CMS & a powerful new data search portal.",
+      slug: 'earth-science',
+      tags: ['Frontend Engineering', 'UI/UX Design', 'JavaScript', 'Django'],
+      image: EarthScienceImage
+    }
+  ]
+  const { name, jobTitle, subTitle } = siteMetadata || {};
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <Splash
+        header={<><strong>{name}</strong><br/>{jobTitle}</>}
+        subHeader={subTitle}
+        asideImage={Me}
+      />
+      <div className="container">
+        <ProjectFeed projects={projects} />
+      </div>
+      
+      <section className="experience">
+        <div className="container">
+          <h2>Wanna chat?</h2>
         </div>
-      </div>
+      </section>
+    </>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
