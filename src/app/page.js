@@ -1,8 +1,6 @@
 import Splash from '../components/Splash';
 import ProjectFeed from '../components/ProjectFeed';
 
-import Me from '../assets/Ben-Adams_NoBG.png';
-import '../styles/_index.scss';
 
 import GeospatialImage from '../assets/projects/geospatial/Geospatial-Search.jpg';
 import OceanographyImage from '../assets/projects/oceanography/ocean_preview.jpeg';
@@ -39,17 +37,11 @@ const Home = () => {
       <Splash
         header={<><strong>{name}</strong><br/>{jobTitle}</>}
         subHeader={subTitle}
-        asideImage={Me}
+        className="home-splash"
       />
       <div className="container">
         <ProjectFeed projects={projects} />
       </div>
-      
-      <section className="experience">
-        <div className="container">
-          <h2>Wanna chat?</h2>
-        </div>
-      </section>
     </>
   );
 };

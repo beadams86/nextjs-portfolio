@@ -1,10 +1,9 @@
 import '../styles/_index.scss';
 import { Sora } from 'next/font/google'
-import { siteMetadata } from '@/metadata';
 import Link from 'next/link';
-import Image from 'next/image'
-import logo from '../assets/BA-logo.svg'
- 
+import Navbar from '@/components/Navbar';
+import { siteMetadata } from '@/metadata';
+
 const sora = Sora({
   weight: ['100', '400', '700'],
   subsets: ['latin'],
@@ -17,29 +16,26 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={sora.className}>
         <main>
-        <header className='navbar'>
-          <div className="container">
-            <a href="/" className="navbar-logo">
-              <Image src={logo} alt="Ben Adams Logo" />
-            </a>
-            
-            <nav className='navbar-menu'>
-              <Link href='/'>My Work</Link>
-              <Link href='/about'>About Me</Link>
-              <Link href={`mailto:${siteMetadata?.email}?subject=benadams.io Website Inquiry`}>
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </header>
+        <Navbar />
 
         <section>
           {children}
         </section>
+
+        <section className="bottom-callout">
+          <div className="container">
+            <h2>Let's chat!</h2>
+            <Link className="button" href={`mailto:${siteMetadata?.email}?subject=benadams.io Website Inquiry`}>
+              Send An Email
+            </Link>
+          </div>
+        </section>
+  
       </main>
     </body>
     </html>

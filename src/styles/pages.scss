@@ -1,13 +1,7 @@
-/* Home Page: Portfolio */
-.my-work-home {
-  .navbar {
-    background-color: transparent;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-  }
-  .splash {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-  }
+/* About Page */
+
+.splash.about-splash {
+  background: white;
+  color: $dark-gray;
+  text-align: left;
 }
