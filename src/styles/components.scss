@@ -1,7 +1,6 @@
 /* Splash */
 .splash {
-  background: linear-gradient(166deg, #4A0E12 0%, #0E144A 35%, #0B103F 100%);
-  background: url('../assets/splash-bg.jpg') no-repeat;
+  background-repeat:  no-repeat;
   background-size: cover;
   min-height: 500px;
   display: flex;
@@ -72,6 +71,27 @@
   }
 }
 
+/* Skills List */
+.skills-list.container {
+  max-width: 70%;
+  position: relative;
+  margin-top: -3rem;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 3px 18px rgba(0,0,0,0.1);
+  padding: 3rem;
+  text-align: center;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      line-height: 2;
+    }
+  }
+}
+
 /* Project Feed */
 .project-feed {
   padding: 5rem 0;
@@ -85,10 +105,13 @@
     padding-right: calc(50% + 9rem);
     display: flex;
     align-items: center;
+    text-decoration: none;
+    overflow: hidden;
     h2 {
       font-size: 2.5rem;
       margin-bottom: .5rem;
       margin-top: 0;
+      transition: all 0.2s ease-in-out;
     }
     p {
       font-size: 1.1rem;
@@ -96,17 +119,29 @@
       opacity: 0.8;
     }
     .button {
+      visibility: hidden;
       margin-top: .5rem;
       margin-right: auto;
       background: white;
       color: $black;
+      transition: all 0.3s;
+    }
+    &:hover {
+      box-shadow: none;
+      h2 {
+        text-decoration: underline;
+      }
+      .project-card-image {
+        bottom: -2.5rem;
+      }
     }
     .project-card-image {
+      transition: all 0.2s ease-in-out;
       width: 50%;
       overflow: hidden;
       position: absolute;
       right: 3rem;
-      top: 3rem;
+      bottom: -3rem;
       height: calc(100% - 3rem);
       width: 50%;
       box-shadow: -1px -1px 2px 1px rgba(0,0,0,0.1);
@@ -182,7 +217,7 @@
       padding-left: .5rem;
       padding-right: .5rem;
 
-      &:hover::after {
+      &:hover::after, &.active::after {
           display: block;
           content: '';
           border-bottom: 2px solid rgba(255,255,255,0.5);
@@ -201,7 +236,7 @@
   &.about .navbar-menu{
     a {
       color: $dark-gray;
-      &:hover::after {
+      &:hover::after, &.active::after {
         border-bottom-color: $med-gray;
       }
     }

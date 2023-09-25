@@ -8,11 +8,10 @@ const ProjectFeed = ({ projects = [] }) => {
       ? projects.map((project = {}) => {
           const { title, description, image, slug } = project;
           return (
-            <section className={`project-card project-${slug}`}>
+            <Link href={`/work/${slug}`} className={`project-card project-${slug}`}>
               <div className="project-card-content">
                 <h2>{title}</h2>
                 <p>{description}</p>
-                <Link href={`/projects/${title}`} className="button">Read Case Study</Link>
               </div>
               <div className="project-card-image">
                 <Image src={image}
@@ -21,9 +20,10 @@ const ProjectFeed = ({ projects = [] }) => {
                     width: '100%',
                     height: 'auto',
                   }}
+                  alt={title + " Preview Image"}
                 />
               </div>
-            </section>
+            </Link>
             );
         })
       : <h3>No Projects Found.</h3>

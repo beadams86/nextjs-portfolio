@@ -31,6 +31,41 @@ const Home = () => {
       image: EarthScienceImage
     }
   ]
+
+  const skills = [
+    {
+      name: 'Frontend Developer',
+      list: [
+        'HTML, CSS, JavaScript',
+        'React',
+        'Sass',
+        'Jest',
+        'React Testing Library',
+        'Git, Version Control',
+        'Gitlab CI',
+        'Jenkins',
+        'Angular',
+        'Typescript',
+        'AWS',
+        'NodeJS'
+      ]
+    },
+    {
+      name: 'UI/UX Designer',
+      list: [
+        'UI Design',
+        'Prototyping',
+        'Wireframes',
+        'Component Libraries',
+        'User Research',
+        'User Testing',
+        'Graphic Design',
+        'Information Architecture',
+        'Design Systems',
+        'Accessibility'
+      ]
+    }
+  ]
   const { name, jobTitle, subTitle } = siteMetadata || {};
   return (
     <>
@@ -39,6 +74,22 @@ const Home = () => {
         subHeader={subTitle}
         className="home-splash"
       />
+      <div className="container skills-list">
+        <div className="row">
+          {skills.map((skill = {}) => {
+            const { name, list } = skill;
+            return (
+            <div className="col-half">
+              <h4>{name}</h4>
+              <ul>
+                {list.map(skill => <li>{skill}</li>)}
+              </ul>
+            </div>
+            )
+          })}
+
+        </div>
+      </div>
       <div className="container">
         <ProjectFeed projects={projects} />
       </div>

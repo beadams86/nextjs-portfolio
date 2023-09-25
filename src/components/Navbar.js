@@ -14,12 +14,16 @@ const Navbar = () => {
 
   const navClass = `navbar ${pageName}`;
 
+  function checkForActive (name = 'home') {
+    return pageName === name;
+  }
+
   return (
     <header className={navClass}>
       <div className="container">
         <a href="/" className="navbar-logo">
           <Image
-            src={pageName === 'home' ? logo : darkLogo}
+            src={pageName !== 'about' ? logo : darkLogo}
             alt="Ben Adams Logo"
             style={{
               width: 'auto',
@@ -29,8 +33,8 @@ const Navbar = () => {
         </a>
         
         <nav className='navbar-menu'>
-          <Link href='/'>My Work</Link>
-          <Link href='/about'>About Me</Link>
+          <Link href='/' className={checkForActive('home') ? 'active' : ''}>My Work</Link>
+          <Link href='/about' className={checkForActive('about') ? 'active' : ''}>About Me</Link>
           <Link href={`mailto:${siteMetadata?.email}?subject=benadams.io Website Inquiry`}>
             Contact
           </Link>

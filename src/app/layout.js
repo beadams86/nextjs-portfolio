@@ -23,9 +23,7 @@ export default function RootLayout({ children }) {
         <main>
         <Navbar />
 
-        <section>
-          {children}
-        </section>
+        {children}
 
         <section className="bottom-callout">
           <div className="container">

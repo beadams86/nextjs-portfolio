@@ -19,3 +19,12 @@
     max-width: 1320px;
   }
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-half {
+  width: 50%;
+}
