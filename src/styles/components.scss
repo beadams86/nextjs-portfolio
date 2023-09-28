@@ -7,19 +7,21 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  color: white;
-  text-align: center;
+  color: $black;
   padding-top: 4rem;
   padding-bottom: 2rem;
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: normal;
-    line-height: 4rem;
+    line-height: 2.5rem;
     margin-bottom: 1rem;
+    letter-spacing: -1px;
     margin-top: 0;
+    max-width: 600px;
     strong {
       font-weight: bold;
+      font-size: 3rem;
     }
   }
   .button {
@@ -28,16 +30,14 @@
   p {
     font-size: 1.2rem;
     line-height: 1.7rem;
+    max-width: 800px;
 
     a {
-      color: white;
+      color: $black;
       &:hover {
         text-decoration: none;
       }
     }
-  }
-  .container {
-    max-width: 800px;
   }
 
   &.has-aside-image {
@@ -73,15 +73,13 @@
 
 /* Skills List */
 .skills-list.container {
-  max-width: 70%;
-  position: relative;
-  margin-top: -3rem;
-  background-color: white;
-  border-radius: 8px;
-  border: 1px solid #f1f1f1;
+
+  background-color: $black;
   box-shadow: 1px 3px 18px rgba(0,0,0,0.1);
-  padding: 3rem;
+  padding: 0;
   text-align: center;
+  color: white;
+  position: relative;
 
   ul {
     list-style-type: none;
@@ -90,11 +88,29 @@
       line-height: 2;
     }
   }
+
+  .col-half {
+    padding: 1.5rem;
+    &:nth-of-type(2) {
+      background-color: white;
+      * {
+        color: $black;
+      }
+    }
+  }
 }
 
 /* Project Feed */
 .project-feed {
   padding: 5rem 0;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+  p.subheading {
+    color: $dark-gray;
+    margin-bottom: 3rem;
+  }
   .project-card {
     margin-bottom: 5rem;
     padding: 2rem;
@@ -107,8 +123,8 @@
     align-items: center;
     text-decoration: none;
     overflow: hidden;
-    h2 {
-      font-size: 2.5rem;
+    h3 {
+      font-size: 2rem;
       margin-bottom: .5rem;
       margin-top: 0;
       transition: all 0.2s ease-in-out;
@@ -128,9 +144,6 @@
     }
     &:hover {
       box-shadow: none;
-      h2 {
-        text-decoration: underline;
-      }
       .project-card-image {
         bottom: -2.5rem;
       }
@@ -154,11 +167,15 @@
     /* Specific Projects */
     &.project-geospatial {
       background-color: #222;
-      color: white;
+      * {
+        color: white;
+      }
     }
     &.project-oceanography {
       background-color: #0e2d41;
-      color: white;
+      * {
+        color: white;
+      }
     }
   }
 }
@@ -198,6 +215,7 @@
   padding: 1rem 0;
   background-color: transparent;
   position: absolute;
+  top: 0;
   width: 100%;
   z-index: 2;
 
@@ -209,36 +227,53 @@
   .navbar-menu {
     margin-left: auto;
     a {
-      color: white;
+      color: $black;
       font-weight: bold;
       font-size: 1.1rem;
       text-decoration: none;
       position: relative;
       padding-left: .5rem;
       padding-right: .5rem;
+      display: inline-block;
+      transition: all 0.2s ease-in-out;
 
-      &:hover::after, &.active::after {
-          display: block;
-          content: '';
-          border-bottom: 2px solid rgba(255,255,255,0.5);
-          width: 100%;
-          height: 2px;
-          position: absolute;
-          z-index: 2;
-          bottom: -5px;
-          right: 0;
+      .highlight {
+        position: relative;
+      }
+
+      &::before {
+        content: " ";
+        display: block;
+        
+        height: 60%;
+        width: 0;
+        margin-left: -3px;
+        margin-right: -3px;
+        position: absolute;
+        background: $black;
+        transform: rotate(2deg);
+        top: -1px;
+        left: -1px;
+        border-radius: 20% 25% 20% 24%;
+        padding: 0;
+        //visibility: hidden;
+      }
+      &:hover, &.active {
+        color: white;
+      }
+      &:hover::before, &.active::before {
+        width: 100%;
+        padding: 10px 3px 3px 10px;
+        //visibility: visible;
       }
     }
     a:not(:last-of-type) {
       margin-right: 1.5rem;
     }
   }
-  &.about .navbar-menu{
+  &[class*="work/"] {
     a {
-      color: $dark-gray;
-      &:hover::after, &.active::after {
-        border-bottom-color: $med-gray;
-      }
+      color: white;
     }
   }
 }

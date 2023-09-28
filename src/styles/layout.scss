@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   width: 100%;
   max-width: calc(100% - 2rem);
@@ -27,4 +31,14 @@
 
 .col-half {
   width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+
+    .col-half {
+      width: 100%;
+    }
+  }
 }

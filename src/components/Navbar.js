@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="container">
         <a href="/" className="navbar-logo">
           <Image
-            src={pageName !== 'about' ? logo : darkLogo}
+            src={!pageName.includes('work') ? darkLogo : logo}
             alt="Ben Adams Logo"
             style={{
               width: 'auto',
@@ -33,10 +33,14 @@ const Navbar = () => {
         </a>
         
         <nav className='navbar-menu'>
-          <Link href='/' className={checkForActive('home') ? 'active' : ''}>My Work</Link>
-          <Link href='/about' className={checkForActive('about') ? 'active' : ''}>About Me</Link>
+          <Link href='/' className={checkForActive('home') ? 'active' : ''}>
+            <span className="highlight">My Work</span>
+          </Link>
+          <Link href='/about' className={checkForActive('about') ? 'active' : ''}>
+            <span className="highlight">About Me</span>
+          </Link>
           <Link href={`mailto:${siteMetadata?.email}?subject=benadams.io Website Inquiry`}>
-            Contact
+            <span className="highlight">Contact</span>
           </Link>
         </nav>
       </div>

@@ -1,13 +1,12 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import DefaultSplashImage from '../assets/splash-bg.jpg';
 
 const Splash = ({
   header,
   subHeader,
   callToAction, /* { label: 'Do Something', to: '/' } */
-  bgImage = DefaultSplashImage,
+  bgImage,
   asideImage,
   className
 }) => {
@@ -24,7 +23,10 @@ const Splash = ({
   return (
     <section
       className={cssClass}
-      style={!asideImage ? {backgroundImage: `url(${bgImage.src})`} : undefined}
+      style={!asideImage && bgImage
+        ? {backgroundImage: `url(${bgImage.src})`}
+        : undefined
+        }
       >
       <div className="container">
         <h1>{header}</h1>

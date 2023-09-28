@@ -34,7 +34,7 @@ const Home = () => {
 
   const skills = [
     {
-      name: 'Frontend Developer',
+      name: 'Frontend Development',
       list: [
         'HTML, CSS, JavaScript',
         'React',
@@ -42,8 +42,8 @@ const Home = () => {
         'Jest',
         'React Testing Library',
         'Git, Version Control',
-        'Gitlab CI',
-        'Jenkins',
+        'Gitlab CI, Jenkins',
+        'NextJS',
         'Angular',
         'Typescript',
         'AWS',
@@ -51,7 +51,7 @@ const Home = () => {
       ]
     },
     {
-      name: 'UI/UX Designer',
+      name: 'UI/UX Design',
       list: [
         'UI Design',
         'Prototyping',
